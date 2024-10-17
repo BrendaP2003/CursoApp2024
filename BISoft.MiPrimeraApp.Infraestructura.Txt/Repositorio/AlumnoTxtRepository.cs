@@ -36,7 +36,7 @@ namespace MyPrimeraApp.Repositorio
                 {
                     var valores = linea.Split(',');
 
-                    var alumno = new Alumno(valores[0], valores[1], int.Parse(valores[2]));
+                    var alumno = new Alumno(valores[0], valores[1],valores[2], int.Parse(valores[2]));
 
                     alumnos.Add(alumno);
 
