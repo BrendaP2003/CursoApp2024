@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyPrimeraApp.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace BISoft.MiPrimeraApp.Infraestructura.Txt.Repositorio
 {
-    internal class MaestroTxtRepository
+    
+    public class MaestroTxtRepository : TxtRepository<Maestro>
     {
+        public MaestroTxtRepository() : base("C:\\BaseDeDatos\\Maestros.txt") { }
     }
 }
