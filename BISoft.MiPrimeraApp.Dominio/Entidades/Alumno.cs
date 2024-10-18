@@ -37,5 +37,10 @@ namespace MyPrimeraApp.Entidades
             Edad = edad;
         }
 
+        public override string ToString()
+        {
+            return $"Alumno: {Nombre},{Apellido},{Email},{Edad}";
+        }
+
     }
 }

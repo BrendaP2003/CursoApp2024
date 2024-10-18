@@ -30,5 +30,9 @@ namespace MyPrimeraApp.Entidades
             Email = email;
 
         }
+        public override string ToString()
+        {
+            return $"Maestro: {Nombre}, {Apellido}, {Email}, {Direccion}, {Telefono}";
+        }
     }
 }
