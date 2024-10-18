@@ -10,6 +10,6 @@ namespace BISoft.MiPrimeraApp.Infraestructura.Txt.Repositorio
     
     public class MaestroTxtRepository : TxtRepository<Maestro>
     {
-        public MaestroTxtRepository() : base("C:\\BaseDeDatos\\Maestros.txt") { }
+        public MaestroTxtRepository() : base() { }
     }
 }

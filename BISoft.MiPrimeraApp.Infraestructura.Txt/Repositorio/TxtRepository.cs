@@ -32,8 +32,8 @@ namespace BISoft.MiPrimeraApp.Infraestructura.Txt.Repositorio
         public List<T> Obtener()
         {
             var entities = new List<T>();
-
-            using (StreamReader sr = new StreamReader("C:\\BaseDeDatos\\Alumnos.txt"))
+                                                                       //entity.tostring{}
+            using (StreamReader sr = new StreamReader("C:\\BaseDeDatos\\Alumnos.txt"))//:todo falta modificar el nombre del archivo
             {
                 string linea;
                 while ((linea = sr.ReadLine()) != null)
