@@ -24,9 +24,9 @@ namespace BISoft.MiPrimeraApp.Aplicacion.Fabrica
         public static MaestroService CrearMaestroService(DBType type = DBType.Txt)
         {
 
-            var repo = RepositoryFactory.CrearMaestroRepository(type);
-
-            return new MaestroService(repo);
+           // var repo = RepositoryFactory.CrearMaestroRepository(type);
+           throw new NotImplementedException();
+          //  return new MaestroService(repo);
         }
 
     }

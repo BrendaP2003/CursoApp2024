@@ -7,12 +7,23 @@
 
 
 using BISoft.MiPrimeraApp.Aplicacion.Fabrica;
+using BISoft.MiPrimeraApp.Infraestructura.Txt.Repositorio;
+using MyPrimeraApp.Repositorio;
 
 var service = ServiceFactory.CrearAlumnoService();
 
 
-service.CrearAlumno("Juan", "Perez", "");
+
 
 
 
 Console.WriteLine("Hello, World!");
+
+var maestrotxt= new MaestroTxtRepository();
+var maestros=maestrotxt.Obtener();
+foreach (var item in maestros)
+{
+    Console.WriteLine(item);
+    
+}
+Console.ReadLine();

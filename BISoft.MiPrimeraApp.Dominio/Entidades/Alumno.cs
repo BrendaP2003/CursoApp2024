@@ -27,6 +27,10 @@ namespace MyPrimeraApp.Entidades
 
             Email = email;
         }
+        public Alumno()
+        {
+            
+        }
 
         //Sobrecarga de constructor
         public Alumno(string nombre, string apellido,string email,int edad)
@@ -36,11 +40,10 @@ namespace MyPrimeraApp.Entidades
             Email = email;
             Edad = edad;
         }
-
         public override string ToString()
         {
-            return $"Alumno: {Nombre},{Apellido},{Email},{Edad}";
+            return Nombre + "," + Apellido + "," + Edad + "," + Email + "," + Edad;
         }
-
+       
     }
 }

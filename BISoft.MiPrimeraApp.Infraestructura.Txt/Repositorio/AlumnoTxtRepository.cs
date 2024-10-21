@@ -1,50 +1,65 @@
-﻿using MyPrimeraApp.Entidades;
+﻿using BISoft.MiPrimeraApp.Infraestructura.Txt.Repositorio;
+using MyPrimeraApp.Entidades;
 
 namespace MyPrimeraApp.Repositorio
 {
-    public class AlumnoTxtRepository : IAlumnoRepository
+    public class AlumnoTxtRepository : TxtRepository<Alumno>, IAlumnoRepository
     {
 
-        public void Guardar(Alumno alumno)
-        {
-            ////Validar que el alumno no existe
-            //if (Obtener().Any(x => x.Email == alumno.Email))
-            //{
-            //    throw new InvalidOperationException(  "El alumno ya existe");
-            //}
 
-            using (StreamWriter sw = new StreamWriter("C:\\BaseDeDatos\\Alumnos.txt", true))
-            {
-                sw.WriteLine(alumno.Nombre + "," + alumno.Apellido + "," + alumno.Edad);
-            }
+        public AlumnoTxtRepository() : base() // Si necesitas pasar una ruta, añádela aquí.
+        {
         }
 
-        public Alumno Obtener(int id)
+        protected override Alumno CrearEntidad(string linea)
         {
-            return Obtener().FirstOrDefault(x => x.id == id);
+            var valores = linea.Split(',');
+            return new Alumno(valores[0], valores[1], valores[2], int.Parse(valores[3])); // Cambia según el constructor de Alumno
         }
+      
+        
+        
+        
+        //public void Guardar(Alumno alumno)
+        //{
+        //    ////Validar que el alumno no existe
+        //    //if (Obtener().Any(x => x.Email == alumno.Email))
+        //    //{
+        //    //    throw new InvalidOperationException(  "El alumno ya existe");
+        //    //}
 
-        public List<Alumno> Obtener()
-        {
+        //    using (StreamWriter sw = new StreamWriter("C:\\BaseDeDatos\\Alumnos.txt", true))
+        //    {
+        //        sw.WriteLine(alumno.Nombre + "," + alumno.Apellido + "," + alumno.Edad);
+        //    }
+        //}
 
-            var alumnos = new List<Alumno>();
+        //public Alumno Obtener(int id)
+        //{
+        //    return Obtener().FirstOrDefault(x => x.id == id);
+        //}
 
-            using (StreamReader sr = new StreamReader("C:\\BaseDeDatos\\Alumnos.txt"))
-            {
-                string linea;
-                while ((linea = sr.ReadLine()) != null)
-                {
-                    var valores = linea.Split(',');
+        //public List<Alumno> Obtener()
+        //{
 
-                    var alumno = new Alumno(valores[0], valores[1],valores[2], int.Parse(valores[2]));
+        //    var alumnos = new List<Alumno>();
 
-                    alumnos.Add(alumno);
+        //    using (StreamReader sr = new StreamReader("C:\\BaseDeDatos\\Alumnos.txt"))
+        //    {
+        //        string linea;
+        //        while ((linea = sr.ReadLine()) != null)
+        //        {
+        //            var valores = linea.Split(',');
+
+        //            var alumno = new Alumno(valores[0], valores[1],valores[2], int.Parse(valores[2]));
+
+        //            alumnos.Add(alumno);
 
                    
-                }
-            }
+        //        }
+        //    }
 
-            return alumnos;
-        }
+        //    return alumnos;
+        //}
     }
 }
