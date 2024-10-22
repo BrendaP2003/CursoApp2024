@@ -24,6 +24,7 @@ namespace MyPrimeraApp
 
         private readonly AppContexto _appContext;
 
+
         public Menu()
         {
             InitializeComponent();
@@ -32,16 +33,19 @@ namespace MyPrimeraApp
 
         }
 
+
         private void btnAlumnos_Click(object sender, EventArgs e)
         {
             //var repoSql = AlumnoRepositoryFactory
             //    .CrearAlumnoRepository(DBType.Sqlite);
             //    //new AlumnoRepository(context);
 
-           // _appContext = AppContexto.Instance(DBType.Txt);
+            // _appContext = AppContexto.Instance(DBType.Txt);
 
-
-            var servicio = ServiceFactory.CrearAlumnoService(_appContext.DBType);
+            var repoSql = RepositoryFactory
+                .CrearAlumnoRepository(DBType.Txt);
+            //new AlumnoRepository(context);
+            var servicio = ServiceFactory.CrearAlumnoService(DBType.Txt);
 
             var form = new frmAlumnos(servicio);
             form.Show();
@@ -50,8 +54,11 @@ namespace MyPrimeraApp
         private void button1_Click(object sender, EventArgs e)
         {
             var repoSql = RepositoryFactory
-                .CrearAlumnoRepository(_appContext.DBType);
-           // new AlumnoRepository(context);
+                .CrearMaestroRepository(_appContext.DBType);
+            // new AlumnoRepository(context);
+            var servicio2 = ServiceFactory.CrearMaestroService(_appContext.DBType);
+            var form = new frmMaestros(servicio2);
+            form.Show();
         }
     }
 }

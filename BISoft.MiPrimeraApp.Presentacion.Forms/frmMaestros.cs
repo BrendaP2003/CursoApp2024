@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BISoft.MiPrimeraApp.Aplicacion.Servicios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,35 @@ namespace MyPrimeraApp
 {
     public partial class frmMaestros : Form
     {
-        public frmMaestros()
+        private MaestroService _service;
+        public frmMaestros(MaestroService service)
         {
             InitializeComponent();
+           
+
+            _service = service;
+        }
+
+        private void frmMaestros_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var maestro = _service.CrearMaestro(txtNombre.Text, txtApellido.Text, txtEmail.Text, txtEdad.Text, txtDireccion.Text);
+
+                MessageBox.Show("El nombre es: " + maestro.Nombre + " " + maestro.Apellido
+                    + " \nEdad:" + maestro.Email, "Mensaje Alumnos");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+
+
         }
     }
 }

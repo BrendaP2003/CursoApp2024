@@ -19,6 +19,7 @@ namespace MyPrimeraApp.Contextos
             
         }
 
+
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
         //    optionsBuilder.UseSqlServer("server=.;database = Escuela;Encrypt=false; Trusted_connection=true");

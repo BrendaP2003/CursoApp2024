@@ -16,8 +16,8 @@ namespace BISoft.MiPrimeraApp.Infraestructura.Txt.Repositorio
         //    _filePath = filePath;
         //}
 
-      
-        
+   
+
         public void Guardar(T entity) 
         {
             var filename = entity.GetType().Name;

@@ -11,12 +11,7 @@ namespace MyPrimeraApp.Repositorio
         {
         }
 
-        protected override Alumno CrearEntidad(string linea)
-        {
-            var valores = linea.Split(',');
-            return new Alumno(valores[0], valores[1], valores[2], int.Parse(valores[3])); // Cambia según el constructor de Alumno
-        }
-      
+       
         
         
         

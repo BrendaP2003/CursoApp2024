@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BISoft.MiPrimeraApp.Infraestructura.Txt.Repositorio;
+using Microsoft.EntityFrameworkCore;
 using MyPrimeraApp.Contextos;
 using MyPrimeraApp.Repositorio;
 using System;
@@ -34,6 +35,28 @@ namespace MyPrimeraApp.Fabrica
                     return new AlumnoTxtRepository();
             }
 
+        }
+        public static IMaestroRepository CrearMaestroRepository(DBType type = DBType.Txt)
+        {
+            switch (type)
+            {
+                case DBType.SqlServer:
+                    var optionsSqlServer = new DbContextOptionsBuilder<Context>()
+                        .UseSqlServer("server=.;database=Escuela;Encrypt=false; Trusted_connection=true")
+                        .Options;
+                    var contextSqlServer = new Context(optionsSqlServer);
+                    return new MaestroRepository(contextSqlServer); // Asumiendo que tienes una clase MaestroRepository
+
+                case DBType.Sqlite:
+                    var optionsSqlite = new DbContextOptionsBuilder<Context>()
+                        .UseSqlite("Data Source=C:\\BaseDeDatos\\Escuela.db")
+                        .Options;
+                    var contextSqlite = new Context(optionsSqlite);
+                    return new MaestroRepository(contextSqlite); // Asumiendo que tienes una clase MaestroRepository
+
+                default:
+                    return new MaestroTxtRepository();  // Implementación para el archivo de texto
+            }
         }
 
         public enum DBType
