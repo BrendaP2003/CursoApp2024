@@ -45,14 +45,14 @@ namespace MyPrimeraApp.Fabrica
                         .UseSqlServer("server=.;database=Escuela;Encrypt=false; Trusted_connection=true")
                         .Options;
                     var contextSqlServer = new Context(optionsSqlServer);
-                    return new MaestroRepository(contextSqlServer); // Asumiendo que tienes una clase MaestroRepository
+                    return new MaestroRepository(contextSqlServer);
 
                 case DBType.Sqlite:
                     var optionsSqlite = new DbContextOptionsBuilder<Context>()
                         .UseSqlite("Data Source=C:\\BaseDeDatos\\Escuela.db")
                         .Options;
                     var contextSqlite = new Context(optionsSqlite);
-                    return new MaestroRepository(contextSqlite); // Asumiendo que tienes una clase MaestroRepository
+                    return new MaestroRepository(contextSqlite); 
 
                 default:
                     return new MaestroTxtRepository();  // Implementación para el archivo de texto
