@@ -34,16 +34,16 @@ namespace MyPrimeraApp.Entidades
         }
 
         //Sobrecarga de constructor
-        public Alumno(string nombre, string apellido,string email,int edad)
-        {
-            Nombre = nombre;
-            Apellido = apellido;
-            Email = email;
-            Edad = edad;
-        }
+        //public Alumno(string nombre, string apellido,string email,int edad)
+        //{
+        //    Nombre = nombre;
+        //    Apellido = apellido;
+        //    Email = email;
+        //    Edad = edad;
+        //}
         public override string ToString()
         {
-            return Nombre + "," + Apellido + "," + Edad + "," + Email + "," + Edad;
+            return Nombre + "," + Apellido + ","  + Email + "," + Edad;
         }
         public override void ReadTxt(string linea)
         {
@@ -51,7 +51,9 @@ namespace MyPrimeraApp.Entidades
             Nombre = valores[(int)AlumnoColum.Nombre];
             Apellido = valores[(int)AlumnoColum.Apellido];
             Email = valores[(int)AlumnoColum.Email];
-            //Edad = valores[(int)AlumnoColum.Telefono];
+           // Edad = valores[(int)AlumnoColum.Edad];
+
+
 
 
         }
@@ -61,8 +63,9 @@ namespace MyPrimeraApp.Entidades
             Nombre = 0,
             Apellido,
             Email,
-            Telefono,
-            //Edad
+            Edad
+          
+          
         }
 
     }

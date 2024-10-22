@@ -21,7 +21,7 @@ namespace BISoft.MiPrimeraApp.Infraestructura.Txt.Repositorio
         public void Guardar(T entity) 
         {
             var filename = entity.GetType().Name;
-            using (StreamWriter sw = new StreamWriter($"C:\\BaseDeDatos\\{entity.GetType}.txt", true))
+            using (StreamWriter sw = new StreamWriter($"C:\\BaseDeDatos\\{entity.GetType().Name}.txt", true))
             {
                 sw.WriteLine(entity.ToString()); // Asegúrate de que cada entidad tenga un método ToString adecuado
             }//:todo checar 

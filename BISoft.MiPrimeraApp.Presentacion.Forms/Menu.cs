@@ -54,9 +54,9 @@ namespace MyPrimeraApp
         private void button1_Click(object sender, EventArgs e)
         {
             var repoSql = RepositoryFactory
-                .CrearMaestroRepository(_appContext.DBType);
+                .CrearMaestroRepository(DBType.Txt);
             // new AlumnoRepository(context);
-            var servicio2 = ServiceFactory.CrearMaestroService(_appContext.DBType);
+            var servicio2 = ServiceFactory.CrearMaestroService(DBType.Txt);
             var form = new frmMaestros(servicio2);
             form.Show();
         }

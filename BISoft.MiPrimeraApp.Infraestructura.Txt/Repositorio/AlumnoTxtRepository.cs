@@ -7,7 +7,7 @@ namespace MyPrimeraApp.Repositorio
     {
 
 
-        public AlumnoTxtRepository() : base() // Si necesitas pasar una ruta, añádela aquí.
+        public AlumnoTxtRepository() : base()
         {
         }
 

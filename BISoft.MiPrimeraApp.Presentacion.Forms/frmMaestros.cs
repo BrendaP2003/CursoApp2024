@@ -31,10 +31,10 @@ namespace MyPrimeraApp
         {
             try
             {
-                var maestro = _service.CrearMaestro(txtNombre.Text, txtApellido.Text, txtEmail.Text, txtEdad.Text, txtDireccion.Text);
+                var maestro = _service.CrearMaestro(txtNombre.Text, txtApellido.Text, txtEmail.Text, txtDirecion.Text, txtTelefono.Text);
 
                 MessageBox.Show("El nombre es: " + maestro.Nombre + " " + maestro.Apellido
-                    + " \nEdad:" + maestro.Email, "Mensaje Alumnos");
+                    + " \nEdad:" + maestro.Email, "Mensaje Maestros");
             }
             catch (Exception ex)
             {

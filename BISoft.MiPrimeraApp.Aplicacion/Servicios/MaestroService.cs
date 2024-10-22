@@ -32,5 +32,9 @@ namespace BISoft.MiPrimeraApp.Aplicacion.Servicios
             return maestro;
 
         }
+        public List<Maestro> ObtenerMaestro()
+        {
+            return _repo.Obtener();
+        }
     }
 }

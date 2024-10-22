@@ -30,112 +30,135 @@
         {
             lblNombre = new Label();
             lblApellido = new Label();
-            lblEdad = new Label();
+            lblDirecion = new Label();
             lblEmail = new Label();
             txtNombre = new TextBox();
             txtApellido = new TextBox();
             txtEmail = new TextBox();
-            txtEdad = new TextBox();
+            txtDirecion = new TextBox();
             btnGuardar = new Button();
-            txtDireccion = new TextBox();
+            txtTelefono = new TextBox();
+            lblTelefono = new Label();
             SuspendLayout();
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(45, 73);
+            lblNombre.Location = new Point(32, 44);
+            lblNombre.Margin = new Padding(2, 0, 2, 0);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(78, 25);
+            lblNombre.Size = new Size(51, 15);
             lblNombre.TabIndex = 0;
             lblNombre.Text = "Nombre";
             // 
             // lblApellido
             // 
             lblApellido.AutoSize = true;
-            lblApellido.Location = new Point(45, 136);
+            lblApellido.Location = new Point(32, 82);
+            lblApellido.Margin = new Padding(2, 0, 2, 0);
             lblApellido.Name = "lblApellido";
-            lblApellido.Size = new Size(78, 25);
+            lblApellido.Size = new Size(51, 15);
             lblApellido.TabIndex = 1;
             lblApellido.Text = "Apellido";
             // 
-            // lblEdad
+            // lblDirecion
             // 
-            lblEdad.AutoSize = true;
-            lblEdad.Location = new Point(45, 284);
-            lblEdad.Name = "lblEdad";
-            lblEdad.Size = new Size(52, 25);
-            lblEdad.TabIndex = 3;
-            lblEdad.Text = "Edad";
+            lblDirecion.AutoSize = true;
+            lblDirecion.Location = new Point(32, 170);
+            lblDirecion.Margin = new Padding(2, 0, 2, 0);
+            lblDirecion.Name = "lblDirecion";
+            lblDirecion.Size = new Size(57, 15);
+            lblDirecion.TabIndex = 3;
+            lblDirecion.Text = "Direccion";
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(45, 210);
+            lblEmail.Location = new Point(32, 126);
+            lblEmail.Margin = new Padding(2, 0, 2, 0);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(54, 25);
+            lblEmail.Size = new Size(36, 15);
             lblEmail.TabIndex = 2;
             lblEmail.Text = "Email";
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(45, 102);
+            txtNombre.Location = new Point(32, 61);
+            txtNombre.Margin = new Padding(2, 2, 2, 2);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(150, 31);
+            txtNombre.Size = new Size(106, 23);
             txtNombre.TabIndex = 4;
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(45, 176);
+            txtApellido.Location = new Point(32, 106);
+            txtApellido.Margin = new Padding(2, 2, 2, 2);
             txtApellido.Name = "txtApellido";
-            txtApellido.Size = new Size(150, 31);
+            txtApellido.Size = new Size(106, 23);
             txtApellido.TabIndex = 5;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(45, 250);
+            txtEmail.Location = new Point(32, 150);
+            txtEmail.Margin = new Padding(2, 2, 2, 2);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(150, 31);
+            txtEmail.Size = new Size(106, 23);
             txtEmail.TabIndex = 6;
             // 
-            // txtEdad
+            // txtDirecion
             // 
-            txtEdad.Location = new Point(45, 312);
-            txtEdad.Name = "txtEdad";
-            txtEdad.Size = new Size(150, 31);
-            txtEdad.TabIndex = 7;
+            txtDirecion.Location = new Point(32, 187);
+            txtDirecion.Margin = new Padding(2, 2, 2, 2);
+            txtDirecion.Name = "txtDirecion";
+            txtDirecion.Size = new Size(106, 23);
+            txtDirecion.TabIndex = 7;
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(204, 379);
+            btnGuardar.Location = new Point(143, 227);
+            btnGuardar.Margin = new Padding(2, 2, 2, 2);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(112, 34);
+            btnGuardar.Size = new Size(78, 20);
             btnGuardar.TabIndex = 8;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
             btnGuardar.Click += btnGuardar_Click;
             // 
-            // txtDireccion
+            // txtTelefono
             // 
-            txtDireccion.Location = new Point(325, 210);
-            txtDireccion.Name = "txtDireccion";
-            txtDireccion.Size = new Size(150, 31);
-            txtDireccion.TabIndex = 9;
+            txtTelefono.Location = new Point(228, 126);
+            txtTelefono.Margin = new Padding(2, 2, 2, 2);
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(106, 23);
+            txtTelefono.TabIndex = 9;
+            // 
+            // lblTelefono
+            // 
+            lblTelefono.AutoSize = true;
+            lblTelefono.Location = new Point(228, 106);
+            lblTelefono.Margin = new Padding(2, 0, 2, 0);
+            lblTelefono.Name = "lblTelefono";
+            lblTelefono.Size = new Size(52, 15);
+            lblTelefono.TabIndex = 10;
+            lblTelefono.Text = "Telefono";
             // 
             // frmMaestros
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(txtDireccion);
+            ClientSize = new Size(560, 270);
+            Controls.Add(lblTelefono);
+            Controls.Add(txtTelefono);
             Controls.Add(btnGuardar);
-            Controls.Add(txtEdad);
+            Controls.Add(txtDirecion);
             Controls.Add(txtEmail);
             Controls.Add(txtApellido);
             Controls.Add(txtNombre);
-            Controls.Add(lblEdad);
+            Controls.Add(lblDirecion);
             Controls.Add(lblEmail);
             Controls.Add(lblApellido);
             Controls.Add(lblNombre);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "frmMaestros";
             Text = "frmMaestros";
             Load += frmMaestros_Load;
@@ -147,13 +170,14 @@
 
         private Label lblNombre;
         private Label lblApellido;
-        private Label lblEdad;
+        private Label lblDirecion;
         private Label lblEmail;
         private TextBox txtNombre;
         private TextBox txtApellido;
         private TextBox txtEmail;
-        private TextBox txtEdad;
+        private TextBox txtDirecion;
         private Button btnGuardar;
-        private TextBox txtDireccion;
+        private TextBox txtTelefono;
+        private Label lblTelefono;
     }
 }

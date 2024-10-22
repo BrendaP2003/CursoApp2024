@@ -41,7 +41,8 @@ namespace MyPrimeraApp.Entidades
             Nombre= valores[(int)MaestroColum.Nombre]; 
             Apellido= valores[(int)MaestroColum.Apellido];
             Email= valores[(int)MaestroColum.Email];
-            Telefono= valores[(int)MaestroColum.Telefono];
+            Direccion = valores[(int)MaestroColum.Direccion];
+            Telefono = valores[(int)MaestroColum.Telefono];
 
             
         }
@@ -55,6 +56,7 @@ namespace MyPrimeraApp.Entidades
             Nombre=0,
             Apellido,
             Email,
+            Direccion,
             Telefono
         }
 
