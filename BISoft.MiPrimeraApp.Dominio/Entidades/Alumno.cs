@@ -51,7 +51,8 @@ namespace MyPrimeraApp.Entidades
             Nombre = valores[(int)AlumnoColum.Nombre];
             Apellido = valores[(int)AlumnoColum.Apellido];
             Email = valores[(int)AlumnoColum.Email];
-           // Edad = valores[(int)AlumnoColum.Edad];
+            Edad = int.Parse(valores[(int)AlumnoColum.Edad]);
+           
 
 
 

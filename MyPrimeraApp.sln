@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BISoft.MiProyecto.Presentac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BISoft.MiPrimeraApp.Aplicacion", "BISoft.MiPrimeraApp.Aplicacion\BISoft.MiPrimeraApp.Aplicacion.csproj", "{2A07C4C2-D1F7-41C6-98CC-9B5BBAC47FCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiSoft.MiPrimeraApp.Api", "..\MyPrimeraAppGITB\BiSoft.MiPrimeraApp.Api\BiSoft.MiPrimeraApp.Api.csproj", "{2537DCCC-9F39-457C-B2B3-9F9CD1EFB958}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiSof.MiPrimeraApp.Api", "BiSof.MiPrimeraApp.Api\BiSof.MiPrimeraApp.Api.csproj", "{D13B9A8B-8F64-42C3-879C-16CD88ED5BD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +47,10 @@ Global
 		{2A07C4C2-D1F7-41C6-98CC-9B5BBAC47FCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A07C4C2-D1F7-41C6-98CC-9B5BBAC47FCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A07C4C2-D1F7-41C6-98CC-9B5BBAC47FCA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2537DCCC-9F39-457C-B2B3-9F9CD1EFB958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2537DCCC-9F39-457C-B2B3-9F9CD1EFB958}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2537DCCC-9F39-457C-B2B3-9F9CD1EFB958}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2537DCCC-9F39-457C-B2B3-9F9CD1EFB958}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D13B9A8B-8F64-42C3-879C-16CD88ED5BD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D13B9A8B-8F64-42C3-879C-16CD88ED5BD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D13B9A8B-8F64-42C3-879C-16CD88ED5BD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D13B9A8B-8F64-42C3-879C-16CD88ED5BD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
