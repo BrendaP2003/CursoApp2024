@@ -4,6 +4,9 @@ using MyPrimeraApp.Entidades;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.ad
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -24,9 +27,9 @@ var summaries = new[]
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 };
 
-app.MapGet("/api/Alumnos", () => {
+app.MapGet("/api/Alumnos/{id}", (int id) => {
 
-    var service = ServiceFactory.CrearAlumnoService();
+    //var service = ServiceFactory.CrearAlumnoService();
     var alumnos = service.ObtenerAlumnos();
     return alumnos;
 });
@@ -40,22 +43,18 @@ app.MapGet("/api/Maestros", () => {
 app.MapPost("/api/Alumnos", (Alumno alumno) => {
 
     var service = ServiceFactory.CrearAlumnoService();
+    var resultado = service.CrearAlumno(alumno.Nombre, alumno.Apellido, alumno.Email);
 
-    // Asegúrate de que CrearAlumno reciba los tipos correctos
-    var resultado = service.CrearAlumno(alumno.Nombre, alumno.Apellido, alumno.Edad.ToString());
-
-    // Asegúrate de que el resultado tenga la propiedad Id
+    
     return  resultado;
 });
 
-app.MapPost("/api/Maestros", (Maestro maestro) => {
+app.MapPost("/api/Maestros/", (Maestro maestro) => {
 
     var service = ServiceFactory.CrearMaestroService();
-  
-    // Asegúrate de que CrearAlumno reciba los tipos correctos
     var resultado = service.CrearMaestro(maestro.Nombre, maestro.Apellido, maestro.Direccion,maestro.Email, maestro.Telefono);
 
-    // Asegúrate de que el resultado tenga la propiedad Id
+    
     return resultado;
 });
 

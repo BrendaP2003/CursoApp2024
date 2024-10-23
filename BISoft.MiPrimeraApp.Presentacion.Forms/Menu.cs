@@ -43,9 +43,9 @@ namespace MyPrimeraApp
             // _appContext = AppContexto.Instance(DBType.Txt);
 
             var repoSql = RepositoryFactory
-                .CrearAlumnoRepository(DBType.Txt);
+                .CrearAlumnoRepository(DBType.Sqlite);
             //new AlumnoRepository(context);
-            var servicio = ServiceFactory.CrearAlumnoService(DBType.Txt);
+            var servicio = ServiceFactory.CrearAlumnoService(DBType.Sqlite);
 
             var form = new frmAlumnos(servicio);
             form.Show();

@@ -27,7 +27,7 @@ namespace MyPrimeraApp.Fabrica
                     return new AlumnoRepository(context);
                 case DBType.Sqlite:
                     var optionsSqlite = new DbContextOptionsBuilder<Context>()
-                        .UseSqlite("source= C:\\BaseDeDatos\\Escuela.db")
+                        .UseSqlite("Data Source= C:\\BaseDeDatos\\Escuela.db")
                         .Options;
                     var contextSqlite = new Context(optionsSqlite);
                     return new AlumnoRepository(contextSqlite);
