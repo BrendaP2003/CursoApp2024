@@ -12,7 +12,7 @@ namespace MyPrimeraApp.Contextos
     {
 
         public DbSet<Alumno> Alumnos { get; set; }
-        public DbSet<Maestro> Maestros { get; internal set; }
+        public DbSet<Maestro> Maestros { get;  set; }
 
         public Context(DbContextOptions options): base(options)
         {
@@ -27,8 +27,8 @@ namespace MyPrimeraApp.Contextos
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Alumno>().HasKey(x => x.id);
-            modelBuilder.Entity<Maestro>().HasKey(x => x.id);
+            modelBuilder.Entity<Alumno>().HasKey(x => x.Id);
+            modelBuilder.Entity<Maestro>().HasKey(x => x.Id);
         }
     }
 }

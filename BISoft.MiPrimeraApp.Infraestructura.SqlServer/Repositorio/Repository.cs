@@ -22,7 +22,7 @@ namespace MyPrimeraApp.Repositorio
 
         public void Guardar(QuienSabe entidad)
         {
-            entidad.id = 0;
+            entidad.Id = 0;
             //var result = _contexto.Set<QuienSabe>()
             //    .Where(x => x.Email )
             //    .FirstOrDefault();
@@ -36,7 +36,7 @@ namespace MyPrimeraApp.Repositorio
 
         public QuienSabe Obtener(int id)
         {
-            return _contexto.Set<QuienSabe>().FirstOrDefault(x => x.id == id);
+            return _contexto.Set<QuienSabe>().FirstOrDefault(x => x.Id == id);
         }
 
         public List<QuienSabe> Obtener()

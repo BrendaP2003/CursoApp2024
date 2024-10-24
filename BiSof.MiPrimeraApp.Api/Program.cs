@@ -1,11 +1,26 @@
 using BISoft.MiPrimeraApp.Aplicacion.Fabrica;
+using BISoft.MiPrimeraApp.Aplicacion.Request;
+using BISoft.MiPrimeraApp.Aplicacion.Response;
+using BISoft.MiPrimeraApp.Aplicacion.Servicios;
+using Microsoft.EntityFrameworkCore;
+using MyPrimeraApp.Contextos;
 using MyPrimeraApp.Entidades;
+using MyPrimeraApp.Repositorio;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.ad
+
+
+// Configurar el contexto de la base de datos
+builder.Services.AddDbContext<Context>(options =>
+    options.UseSqlServer("server=.;database = Escuela;Encrypt=false; Trusted_connection=true")
+);
+
+builder.Services.AddScoped<AlumnoService>();
+builder.Services.AddScoped<IAlumnoRepository, AlumnoRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -22,17 +37,28 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
+
+
+//app.MapGet("/api/Alumnos/{id}", (int id) => {
+
+//    //var service = ServiceFactory.CrearAlumnoService();
+//    var alumnos = service.ObtenerAlumnos();
+//    return alumnos;
+//});
+
+app.MapGet("/api/alumnos", (AlumnoService service) =>
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/api/Alumnos/{id}", (int id) => {
-
-    //var service = ServiceFactory.CrearAlumnoService();
+   // var service = ServiceFactory.CrearAlumnoService();
     var alumnos = service.ObtenerAlumnos();
     return alumnos;
 });
+
+app.MapPost("/api/alumnos", (AlumnoService service, CrearAlumno alumnoDto) =>
+{
+    var alumno = service.CrearAlumno(alumnoDto.Nombre, alumnoDto.Apellido, alumnoDto.Email);
+    return alumno;
+});
+
 app.MapGet("/api/Maestros", () => {
 
     var service = ServiceFactory.CrearMaestroService();
@@ -40,14 +66,14 @@ app.MapGet("/api/Maestros", () => {
     return alumnos;
 });
 
-app.MapPost("/api/Alumnos", (Alumno alumno) => {
+//app.MapPost("/api/Alumnos", (Alumno alumno) => {
 
-    var service = ServiceFactory.CrearAlumnoService();
-    var resultado = service.CrearAlumno(alumno.Nombre, alumno.Apellido, alumno.Email);
+//    var service = ServiceFactory.CrearAlumnoService();
+//    var resultado = service.CrearAlumno(alumno.Nombre, alumno.Apellido, alumno.Email);
 
     
-    return  resultado;
-});
+//    return  resultado;
+//});
 
 app.MapPost("/api/Maestros/", (Maestro maestro) => {
 
@@ -58,24 +84,7 @@ app.MapPost("/api/Maestros/", (Maestro maestro) => {
     return resultado;
 });
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+
 
 app.Run();
 
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
