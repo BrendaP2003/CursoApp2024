@@ -22,7 +22,7 @@ namespace BISoft.MiPrimeraApp.Aplicacion.Servicios
         {
             _repo = repo;
         }
-
+        //inveatigar recuest scoud, sigleton y tracher
         //public Alumno CrearAlumno(string nombre, string apellido, string email)
         public AlumnoDto CrearAlumno(string nombre, string apellido, string email)
         {

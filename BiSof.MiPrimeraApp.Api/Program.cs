@@ -16,7 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Configurar el contexto de la base de datos
 builder.Services.AddDbContext<Context>(options =>
-    options.UseSqlServer("server=.;database = Escuela;Encrypt=false; Trusted_connection=true")
+    options.UseSqlServer("server=lap-brendap\\SQLEXPRESS;database = Escuela;Encrypt=false; Trusted_connection=true")
 );
 
 builder.Services.AddScoped<AlumnoService>();
@@ -45,6 +45,8 @@ app.UseHttpsRedirection();
 //    var alumnos = service.ObtenerAlumnos();
 //    return alumnos;
 //});
+
+//inveatigar recuest scoud, sigleton y tracher
 
 app.MapGet("/api/alumnos", (AlumnoService service) =>
 {
