@@ -20,8 +20,8 @@ namespace BISoft.MiPrimeraApp.Aplicacion.Servicios
 
         public Maestro CrearMaestro(string nombre, string apellido, string email, string direccion, string telefono)
         {
-            var existemaestro = _repo.Obtener().Any(x => x.Email == email);
-            if (existemaestro) 
+            var existemaestro = _repo.Obtener().FirstOrDefault(x => x.Nombre == nombre);
+            if (existemaestro is not null) 
             {
                 throw new Exception("El maestro ya existe");
             }
@@ -32,9 +32,17 @@ namespace BISoft.MiPrimeraApp.Aplicacion.Servicios
             return maestro;
 
         }
+
         public List<Maestro> ObtenerMaestro()
         {
             return _repo.Obtener();
+        }
+
+        public Maestro ObtenerMaestroPorId(int id) 
+        {
+            return _repo.Obtener().FirstOrDefault(x => x.Id == id);
+
+
         }
     }
 }

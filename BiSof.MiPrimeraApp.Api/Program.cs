@@ -17,10 +17,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Configurar el contexto de la base de datos
 builder.Services.AddDbContext<Context>(options =>
     options.UseSqlServer("server=lap-brendap\\SQLEXPRESS;database = Escuela;Encrypt=false; Trusted_connection=true")
+
 );
 
 builder.Services.AddScoped<AlumnoService>();
 builder.Services.AddScoped<IAlumnoRepository, AlumnoRepository>();
+
+builder.Services.AddScoped<MaestroService>();
+builder.Services.AddScoped<IMaestroRepository, MaestroRepository>();
+
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -55,17 +61,59 @@ app.MapGet("/api/alumnos", (AlumnoService service) =>
     return alumnos;
 });
 
+app.MapGet("/api/alumnos/{Id}", (AlumnoService service, int id) =>
+{
+    var alumno = service.ObtenerAlumnoPorId(id);
+    if (alumno == null)
+    {
+
+        return Results.NotFound("Alumno no encontrado en BD");
+
+    }
+
+    return Results.Ok(alumno);
+
+
+});
+
 app.MapPost("/api/alumnos", (AlumnoService service, CrearAlumno alumnoDto) =>
 {
     var alumno = service.CrearAlumno(alumnoDto.Nombre, alumnoDto.Apellido, alumnoDto.Email);
     return alumno;
 });
 
-app.MapGet("/api/Maestros", () => {
+app.MapGet("/api/Maestros", (MaestroService service) => {
 
-    var service = ServiceFactory.CrearMaestroService();
-    var alumnos = service.ObtenerMaestro();
-    return alumnos;
+    //var service = ServiceFactory.CrearMaestroService();
+    var maestro = service.ObtenerMaestro();
+    return maestro;
+});
+app.MapGet("/api/Maestros/{Id}", (MaestroService service, int id) =>
+{
+    var maestro = service.ObtenerMaestroPorId(id);
+    //var service = ServiceFactory.CrearAlumnoService();
+    if (maestro == null) {
+
+        return Results.NotFound("Maestro no escontrado");
+    }
+    return Results.Ok(maestro);
+});
+
+
+app.MapPost("/api/Maestros/", (MaestroService service, CrearMaestro maestroDto) => {
+
+    //var service = ServiceFactory.CrearMaestroService();
+    try
+    {
+        var maestro = service.CrearMaestro(maestroDto.Nombre, maestroDto.Apellido, maestroDto.Direccion, maestroDto.Email, maestroDto.Telefono);
+        return Results.Ok(maestro);
+    }
+    catch (Exception ex)
+    {
+        return Results.BadRequest(new { mensaje = ex.Message });
+
+    }
+    
 });
 
 //app.MapPost("/api/Alumnos", (Alumno alumno) => {
@@ -73,18 +121,9 @@ app.MapGet("/api/Maestros", () => {
 //    var service = ServiceFactory.CrearAlumnoService();
 //    var resultado = service.CrearAlumno(alumno.Nombre, alumno.Apellido, alumno.Email);
 
-    
+
 //    return  resultado;
 //});
-
-app.MapPost("/api/Maestros/", (Maestro maestro) => {
-
-    var service = ServiceFactory.CrearMaestroService();
-    var resultado = service.CrearMaestro(maestro.Nombre, maestro.Apellido, maestro.Direccion,maestro.Email, maestro.Telefono);
-
-    
-    return resultado;
-});
 
 
 
